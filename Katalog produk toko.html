@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog Produk -  ADIDOS</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f1f5f9;
+            color: #1e293b;
+        }
+
+        header {
+            background: #2563eb;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        header h1 {
+            margin: 0 0 10px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 25px;
+        }
+
+        .search {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 25px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .produk-container {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit, minmax(220px, 1fr)
+            );
+            gap: 20px;
+        }
+
+        .produk {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px #00000012;
+            transition: 0.3s;
+        }
+
+        .produk:hover {
+            transform: translateY(-5px);
+        }
+
+        .produk img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .info {
+            padding: 15px;
+        }
+
+        .info h3 {
+            margin-top: 0;
+        }
+
+        .harga {
+            color: #2563eb;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .deskripsi {
+            color: #64748b;
+            font-size: 14px;
+            min-height: 42px;
+        }
+
+        .tombol {
+            display: block;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            padding: 11px;
+            border-radius: 7px;
+            margin-top: 15px;
+        }
+
+        .tombol:hover {
+            background: #1d4ed8;
+        }
+
+        footer {
+            background: #1e293b;
+            color: white;
+            text-align: center;
+            padding: 18px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 500px) {
+            .container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>TOKO HALIMAWAN</h1>
+        <p>Kualitas original Harga terjangkau</p>
+    </header>
+
+    <div class="container">
+        <h2>Daftar Produk</h2>
+
+        <input
+            type="text"
+            id="cari"
+            class="search"
+            placeholder="Cari produk..."
+        >
+
+        <div class="produk-container" id="daftarProduk">
+
+            <div class="produk" data-nama="tas ransel">
+                <img
+                    src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500"
+                    alt="Tas Ransel"
+                >
+                <div class="info">
+                    <h3>Tas Ransel</h3>
+                    <p class="deskripsi">
+                        Tas praktis untuk sekolah dan bepergian.
+                    </p>
+                    <p class="harga">Rp150.000</p>
+                    <a href="#" class="tombol"
+                       onclick="pesan('Tas Ransel')">
+                        Pesan Sekarang
+                    </a>
+                </div>
+            </div>
+
+            <div class="produk" data-nama="headphone">
+                <img
+                    src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500"
+                    alt="Headphone"
+                >
+                <div class="info">
+                    <h3>Headphone</h3>
+                    <p class="deskripsi">
+                        Headphone nyaman untuk mendengarkan musik.
+                    </p>
+                    <p class="harga">Rp225.000</p>
+                    <a href="#" class="tombol"
+                       onclick="pesan('Headphone')">
+                        Pesan Sekarang
+                    </a>
+                </div>
+            </div>
+
+            <div class="produk" data-nama="sepatu sneakers">
+                <img
+                    src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500"
+                    alt="Sepatu Sneakers"
+                >
+                <div class="info">
+                    <h3>Sepatu Sneakers</h3>
+                    <p class="deskripsi">
+                        Sepatu kasual yang cocok untuk sehari-hari.
+                    </p>
+                    <p class="harga">Rp300.000</p>
+                    <a href="#" class="tombol"
+                       onclick="pesan('Sepatu Sneakers')">
+                        Pesan Sekarang
+                    </a>
+                </div>
+            </div>
+
+            <div class="produk" data-nama="botol minum">
+                <img
+                    src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=500"
+                    alt="Botol Minum"
+                >
+                <div class="info">
+                    <h3>Botol Minum</h3>
+                    <p class="deskripsi">
+                        Botol praktis untuk sekolah dan olahraga.
+                    </p>
+                    <p class="harga">Rp45.000</p>
+                    <a href="#" class="tombol"
+                       onclick="pesan('Botol Minum')">
+                        Pesan Sekarang
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <p id="kosong" style="display:none;">
+            Produk tidak ditemukan.
+        </p>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 HALIMAWAN STORE | Katalog Produk</p>
+    </footer>
+
+    <script>
+        // Fitur pencarian produk
+        const kolomCari = document.getElementById("cari");
+        const produk = document.querySelectorAll(".produk");
+        const pesanKosong = document.getElementById("kosong");
+
+        kolomCari.addEventListener("input", function() {
+            const kata = this.value.toLowerCase();
+            let jumlah = 0;
+
+            produk.forEach(function(item) {
+                const nama = item.dataset.nama;
+
+                if (nama.includes(kata)) {
+                    item.style.display = "block";
+                    jumlah++;
+                } else {
+                    item.style.display = "none";
+                }
+            });
+
+            pesanKosong.style.display =
+                jumlah === 0 ? "block" : "none";
+        });
+
+        // Fitur pemesanan melalui WhatsApp
+        function pesan(namaProduk) {
+            const nomor = "6281234567890";
+            const teks = "Halo, saya ingin memesan " + namaProduk;
+            const url = "https://wa.me/" + nomor
+                + "?text=" + encodeURIComponent(teks);
+
+            window.open(url, "_blank");
+        }
+    </script>
+
+</body>
+</html>
